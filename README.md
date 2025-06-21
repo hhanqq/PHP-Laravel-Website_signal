@@ -1,66 +1,165 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Полноценный работающий сайт: [aiboostusa.com](https://aiboostusa.com/). Для чего он используется, я не знаю и не отвечаю, разработан по заказу.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- **Маршруты (routes)** — с использованием Sanctum для аутентификации API.
+- **Контроллеры (controllers)** — обрабатывают логику запросов, включая регистрацию, вход, верификацию email, проверку депозита клиента и т.д.
+- **Middleware** — такие как `EnsureEmailIsVerified`, `EnsureClientDeposit`, `TrimStrings`, и другие.
+- **Конфигурационные файлы**: `composer.json`, `package.json`, `phpunit.xml`, `config/ignition.php` и др.
+- **Используемые библиотеки и зависимости**:
+  - Laravel
+  - Laravel Sanctum
+  - Spatie Laravel Ignition
+  - Faker
+  - Ramsey UUID
+  - Guzzle
+  - Symfony Console / Mailer / HttpKernel
+  - OpenAI PHP клиент
+  - PestPHP тесты
+  - Vite + Axios для фронтенда
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+На основе этих данных я могу создать подробный и красивый README-файл, описывающий **бэкенд часть вашего проекта**. Ниже приведён пример структуры README:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# 🧠 [Название вашего проекта]
 
-## Learning Laravel
+> Бэкенд часть проекта реализована с использованием **Laravel**, с поддержкой современных практик разработки, REST API, JWT/Sanctum аутентификации, автоматической генерации тестовых данных и интеграции с внешними API.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📦 Технологии
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| Категория       | Использованные технологии |
+|------------------|----------------------------|
+| Backend Framework | Laravel 10.x               |
+| Аутентификация    | Laravel Sanctum            |
+| ORM              | Eloquent ORM               |
+| Маршрутизация     | Laravel Router             |
+| Логирование      | Monolog / Laravel Log      |
+| Генерация данных | Faker                      |
+| Уникальные ID     | Ramsey UUID                |
+| HTTP-клиент       | Guzzle                     |
+| Отправка почты   | Symfony Mailer             |
+| Фронтенд         | Vite + Axios               |
+| Тестирование     | PestPHP, PHPUnit           |
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠️ Основные функции
 
-### Premium Partners
+### 🔐 Аутентификация и регистрация
+- Регистрация пользователей
+- Вход/выход
+- Верификация email
+- Восстановление пароля
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 🔍 Проверка депозита
+- Парсинг данных с внешнего ресурса через `Symfony DomCrawler`
+- Проверка минимальной суммы депозита перед доступом к защищённым маршрутам
 
-## Contributing
+### 🔄 Middleware
+- `EnsureEmailIsVerified` — блокирует доступ, если email не подтверждён
+- `EnsureClientDeposit` — проверяет сумму депозита
+- `TrimStrings` / `ConvertEmptyStringsToNull` — нормализация данных
+- CORS middleware — управление политикой доступа
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 📡 API Endpoints
+```php
+// Гостевые маршруты
+POST /register
+POST /login
+POST /forgot-password
+POST /reset-password
 
-## Code of Conduct
+// Защищённые маршруты
+POST /logout
+GET /secure-page (middleware: ensure.client.deposit)
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 🧪 Тестирование
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Написаны тесты с использованием **PestPHP**
+- Поддержка **PHPUnit**
+- Интеграционные тесты для всех ключевых модулей
+- Mock-объекты, фабрики и фикстуры
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🧰 Конфигурация
+
+- `.env` — управление окружением через `vlucas/phpdotenv`
+- `config/ignition.php` — настройки отладчика Laravel Ignition
+- `phpunit.xml` — конфигурация тестирования
+- `composer.json` — автозагрузка, зависимости и автолоадер PSR-4
+
+---
+
+## 📁 Структура проекта (основные директории)
+
+```
+app/
+├── Http/
+│   ├── Controllers/        — контроллеры
+│   ├── Middleware/           — кастомные middleware
+├── Providers/                — сервис-провайдеры
+bootstrap/                    — загрузка приложения
+config/                       — конфигурационные файлы
+database/                     — миграции и фабрики
+resources/
+routes/                       — API и Web маршруты
+tests/                        — тесты (Pest / PHPUnit)
+vendor/                       — зависимости
+```
+
+---
+
+## 📦 Зависимости (частично)
+
+```json
+"require": {
+  "php": "^8.2",
+  "laravel/framework": "^10.36",
+  "laravel/sanctum": "^3.3",
+  "spatie/laravel-ignition": "^2.1",
+  "fzaninotto/faker": "^1.24",
+  "ramsey/uuid": "^4.7",
+  "guzzlehttp/guzzle": "^7.8"
+}
+```
+
+---
+
+## 🚀 Как запустить локально
+
+1. Склонируйте репозиторий:
+   ```bash
+   git clone https://github.com/yourname/yourproject.git
+   ```
+
+2. Установите зависимости:
+   ```bash
+   composer install
+   npm install
+   ```
+
+3. Настройте `.env`:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+4. Запустите миграции:
+   ```bash
+   php artisan migrate --seed
+   ```
+
+5. Запустите сервер:
+   ```bash
+   php artisan serve
+   npm run dev
+   ```
+
+---
