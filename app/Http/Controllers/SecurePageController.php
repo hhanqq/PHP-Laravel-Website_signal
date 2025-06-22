@@ -17,7 +17,7 @@ class SecurePageController extends Controller
         'chat_opened' => '1',
         'lang' => 'ru',
         'brief-period' => 'currentWeek',
-        'laravel_session' => 'eyJpdiI6IjhYYUdvanFkLzVkaG16RzNsb2hvbEE9PSIsInZhbHVlIjoiQ1VYdGQrb1JMekVEZjJYM3owMUVEelhoWEpVcmdDZXd0ZkV5bENwUm5NWWR2ekEvOFpDSE56ZklTcUU2RUZoQ3RaeURUbGpoSmlYMUFqa0lQWXM5RFY4S0wyRUNSWkV3UDluREord3NYT3hLSHBVZlUvbFh6by9HQ2RudVJtMGIiLCJtYWMiOiIyMmFhMGRiYjViNGMyZjAwYTI4YzU4ZDVjYjQ1MTFlZTJiNTEzYmUxMzliZTFhMzkyZjcxZDRhZTI1MTZlMTMyIiwidGFnIjoiIn0%3D'
+        'laravel_session' => '???%3D'
     ];
 
     public function checkAccess(Request $request)
@@ -37,7 +37,7 @@ class SecurePageController extends Controller
             $refreshedCookies = $this->refreshLaravelSession($this->baseCookies);
             $allCookies = array_merge($this->baseCookies, $refreshedCookies);
 
-            $baseUrl = 'https://affiliate.pocketoption.com/ru/statistics/detailed';
+            $baseUrl = '???';
             $params = http_build_query([
                 'dateFrom' => '2023-09-01',
                 'dateTo' => '2026-03-02'
@@ -55,9 +55,9 @@ class SecurePageController extends Controller
                     ->withHeaders([
                         'User-Agent' => 'Mozilla/5.0',
                         'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp;q=0.8',
-                        'Referer' => 'https://affiliate.pocketoption.com/ru/statistics'
+                        'Referer' => '???'
                     ])
-                    ->withCookies($allCookies, 'affiliate.pocketoption.com')
+                    ->withCookies($allCookies, '???')
                     ->get($url);
 
                 if (!$response->successful()) {
@@ -158,10 +158,10 @@ class SecurePageController extends Controller
             $response = Http::withOptions(['verify' => false, 'timeout' => 10])
                 ->withHeaders([
                     'User-Agent' => 'Mozilla/5.0',
-                    'Referer' => 'https://affiliate.pocketoption.com/ru/statistics'
+                    'Referer' => '???'
                 ])
-                ->withCookies($currentCookies, 'affiliate.pocketoption.com')
-                ->get('https://affiliate.pocketoption.com/ru/statistics');
+                ->withCookies($currentCookies, '???')
+                ->get('???');
 
             $newCookies = [];
             foreach ($response->cookies() as $cookie) {
