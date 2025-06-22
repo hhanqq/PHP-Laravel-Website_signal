@@ -128,34 +128,4 @@ vendor/                       — зависимости
 
 ---
 
-## 🚀 Как запустить локально
 
-1. Склонируйте репозиторий:
-   ```bash
-   git clone https://github.com/yourname/yourproject.git
-   ```
-
-2. Установите зависимости:
-   ```bash
-   composer install
-   npm install
-   ```
-
-3. Настройте `.env`:
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
-
-4. Запустите миграции:
-   ```bash
-   php artisan migrate --seed
-   ```
-
-5. Запустите сервер:
-   ```bash
-   php artisan serve
-   npm run dev
-   ```
-
----
